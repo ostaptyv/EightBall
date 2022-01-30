@@ -40,21 +40,12 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Setup interface
     
     private func setupInterface() {
+        self.view.isKeyboardDismissedWhenTappedOutside = true
         self.navigationItem.title = "Main"
-        setupKeyboardHiding()
         
         initializeInterface()
         setupViewHierarchy()
         constraintInterface()
-    }
-    
-    // The method adds possibility to click outside the keyboard to dismiss it:
-    private func setupKeyboardHiding() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    @objc private func dismissKeyboard() {
-        view.endEditing(true)
     }
     
     // MARK: - Initalize UI
