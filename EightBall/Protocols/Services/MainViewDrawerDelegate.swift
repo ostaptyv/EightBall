@@ -14,7 +14,4 @@ import UIKit
     
     @objc optional func clearAnswerButtonTapped(_ sender: UIButton)
     @objc optional func shareAnswerButtonTapped(_ sender: UIButton)
-    
-    // FIXME: Debug, to delete
-    @objc optional func switchQuestionAnswerModesTapped()
 }

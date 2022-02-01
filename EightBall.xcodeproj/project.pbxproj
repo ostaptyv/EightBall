@@ -12,6 +12,12 @@
 		8449879127A5D4CB007432F1 /* UIView+isKeyboardDismissedTappedOutside.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449879027A5D4CB007432F1 /* UIView+isKeyboardDismissedTappedOutside.swift */; };
 		844987B727A74348007432F1 /* MainViewDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844987B627A74348007432F1 /* MainViewDrawer.swift */; };
 		844987BA27A74782007432F1 /* MainViewDrawerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844987B927A74782007432F1 /* MainViewDrawerDelegate.swift */; };
+		844987C427A87742007432F1 /* ResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844987C327A87742007432F1 /* ResponseEntity.swift */; };
+		844987C727A87DD7007432F1 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844987C627A87DD7007432F1 /* MainPresenter.swift */; };
+		844987CA27A87E76007432F1 /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844987C927A87E76007432F1 /* MainViewProtocol.swift */; };
+		844987CC27A87FAA007432F1 /* MainNetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844987CB27A87FAA007432F1 /* MainNetworkLayer.swift */; };
+		844987CF27A88E5B007432F1 /* MainNetworkLayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844987CE27A88E5B007432F1 /* MainNetworkLayerDelegate.swift */; };
+		844987D227A8AAE9007432F1 /* MainModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844987D127A8AAE9007432F1 /* MainModuleBuilder.swift */; };
 		846BA06627A33E22001A25E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BA06527A33E22001A25E8 /* AppDelegate.swift */; };
 		846BA06827A33E22001A25E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BA06727A33E22001A25E8 /* SceneDelegate.swift */; };
 		846BA06F27A33E24001A25E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846BA06E27A33E24001A25E8 /* Assets.xcassets */; };
@@ -25,6 +31,12 @@
 		8449879027A5D4CB007432F1 /* UIView+isKeyboardDismissedTappedOutside.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+isKeyboardDismissedTappedOutside.swift"; sourceTree = "<group>"; wrapsLines = 0; };
 		844987B627A74348007432F1 /* MainViewDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDrawer.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		844987B927A74782007432F1 /* MainViewDrawerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDrawerDelegate.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		844987C327A87742007432F1 /* ResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseEntity.swift; sourceTree = "<group>"; };
+		844987C627A87DD7007432F1 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		844987C927A87E76007432F1 /* MainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProtocol.swift; sourceTree = "<group>"; };
+		844987CB27A87FAA007432F1 /* MainNetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNetworkLayer.swift; sourceTree = "<group>"; };
+		844987CE27A88E5B007432F1 /* MainNetworkLayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNetworkLayerDelegate.swift; sourceTree = "<group>"; };
+		844987D127A8AAE9007432F1 /* MainModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleBuilder.swift; sourceTree = "<group>"; };
 		846BA06227A33E22001A25E8 /* EightBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EightBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846BA06527A33E22001A25E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846BA06727A33E22001A25E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,9 +84,68 @@
 		844987B827A74773007432F1 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				844987B927A74782007432F1 /* MainViewDrawerDelegate.swift */,
+				844987C827A87E2B007432F1 /* Services */,
+				844987CD27A88E4C007432F1 /* Main */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		844987BD27A86C53007432F1 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				844987C627A87DD7007432F1 /* MainPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		844987C027A874A7007432F1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				844987C227A876C9007432F1 /* Entities */,
+				844987C127A874AB007432F1 /* Network */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		844987C127A874AB007432F1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				844987CB27A87FAA007432F1 /* MainNetworkLayer.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		844987C227A876C9007432F1 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				844987C327A87742007432F1 /* ResponseEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		844987C827A87E2B007432F1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				844987B927A74782007432F1 /* MainViewDrawerDelegate.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		844987CD27A88E4C007432F1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				844987C927A87E76007432F1 /* MainViewProtocol.swift */,
+				844987CE27A88E5B007432F1 /* MainNetworkLayerDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		844987D027A8AAD1007432F1 /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				844987D127A8AAE9007432F1 /* MainModuleBuilder.swift */,
+			);
+			path = Builders;
 			sourceTree = "<group>";
 		};
 		846BA05927A33E21001A25E8 = {
@@ -99,8 +170,11 @@
 				846BA07327A33E24001A25E8 /* Info.plist */,
 				8449878F27A5D3F7007432F1 /* Extensions */,
 				846BA07927A33F6A001A25E8 /* SystemDelegates */,
+				844987D027A8AAD1007432F1 /* Builders */,
 				844987B827A74773007432F1 /* Protocols */,
+				844987C027A874A7007432F1 /* Models */,
 				846BA07B27A34022001A25E8 /* Views */,
+				844987BD27A86C53007432F1 /* Presenters */,
 				846BA07A27A33F92001A25E8 /* Assets */,
 			);
 			path = EightBall;
@@ -206,12 +280,18 @@
 			files = (
 				846BA07D27A34036001A25E8 /* MainViewController.swift in Sources */,
 				844987BA27A74782007432F1 /* MainViewDrawerDelegate.swift in Sources */,
+				844987CC27A87FAA007432F1 /* MainNetworkLayer.swift in Sources */,
+				844987CF27A88E5B007432F1 /* MainNetworkLayerDelegate.swift in Sources */,
 				846BA07F27A38257001A25E8 /* TabBarController.swift in Sources */,
 				844987B727A74348007432F1 /* MainViewDrawer.swift in Sources */,
 				846BA06627A33E22001A25E8 /* AppDelegate.swift in Sources */,
+				844987C427A87742007432F1 /* ResponseEntity.swift in Sources */,
+				844987CA27A87E76007432F1 /* MainViewProtocol.swift in Sources */,
 				8449878E27A5BCA8007432F1 /* TextFieldTableViewCell.swift in Sources */,
 				8449878B27A59F88007432F1 /* SettingsViewController.swift in Sources */,
+				844987C727A87DD7007432F1 /* MainPresenter.swift in Sources */,
 				846BA06827A33E22001A25E8 /* SceneDelegate.swift in Sources */,
+				844987D227A8AAE9007432F1 /* MainModuleBuilder.swift in Sources */,
 				8449879127A5D4CB007432F1 /* UIView+isKeyboardDismissedTappedOutside.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

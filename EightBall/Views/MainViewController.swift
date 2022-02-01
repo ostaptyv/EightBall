@@ -8,8 +8,9 @@
 import UIKit
 import Dispatch
 
-class MainViewController: UIViewController, MainViewDrawerDelegate, UITextFieldDelegate {
+class MainViewController: UIViewController, MainViewDrawerDelegate, UITextFieldDelegate, MainViewProtocol {
     
+    var presenter: MainPresenter!
     private let viewDrawer = MainViewDrawer()
     
     // MARK: - View controller lifecycle methods
@@ -40,58 +41,66 @@ class MainViewController: UIViewController, MainViewDrawerDelegate, UITextFieldD
     }
     
     func clearAnswerButtonTapped(_ sender: UIButton) {
-        // FIXME: Debug, to delete
-        print("clearAnswerButtonTapped")
+        animateButtonTap(using: sender)
         
-        // Button tapping animation
-        UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseInOut) {
-            sender.alpha = 0.5
-        }
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut) {
-            sender.alpha = 1.0
-        }
-        
-        viewDrawer.questionTextField.text = nil
+        viewDrawer.answerLabel.text = nil
         viewDrawer.questionTextField.becomeFirstResponder()
-        switchQuestionAnswerModesTapped()
+        
+        switchQuestionAnswerModes(isQuestionMode: true)
     }
     func shareAnswerButtonTapped(_ sender: UIButton) {
-        // FIXME: Debug, to delete
-        print("shareAnswerButtonTapped")
+        animateButtonTap(using: sender)
         
-        // Button tapping animation
-        UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseInOut) {
-            sender.alpha = 0.5
-        }
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut) {
-            sender.alpha = 1.0
-        }
-        
-        let activityVC = UIActivityViewController(activityItems: ["Placeholder here!"],
+        let textToShare = presenter.getShareText()
+        let activityVC = UIActivityViewController(activityItems: [textToShare],
                                                   applicationActivities: nil)
         present(activityVC, animated: true)
     }
     
-    @objc func switchQuestionAnswerModesTapped() {
-        // FIXME: Debug, to delete
-        print("switchQuestionAnswerModesTapped")
-        
-        viewDrawer.questionTextField.isHidden = !viewDrawer.questionTextField.isHidden
-        viewDrawer.answerLabel.isHidden = !viewDrawer.answerLabel.isHidden
-        viewDrawer.clearAnswerButton.isHidden = !viewDrawer.clearAnswerButton.isHidden
-        viewDrawer.shareAnswerButton.isHidden = !viewDrawer.shareAnswerButton.isHidden
-        
-        // FIXME: Debug, to delete; button to switch between Question and Answer modes
-        if viewDrawer.questionTextField.isHidden {
-            viewDrawer.switchQuestionAnswerModes.backgroundColor = .systemGreen
-        } else {
-            viewDrawer.switchQuestionAnswerModes.backgroundColor = .systemRed
-        }
+    func switchQuestionAnswerModes(isQuestionMode: Bool) {
+        viewDrawer.questionTextField.isHidden = !isQuestionMode
+        viewDrawer.answerLabel.isHidden = isQuestionMode
+        viewDrawer.clearAnswerButton.isHidden = isQuestionMode
+        viewDrawer.shareAnswerButton.isHidden = isQuestionMode
     }
     
     // MARK: - Text field delegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
+    }
+    
+    // MARK: - Handle data from presenter
+    
+    func didReceiveAnswer(_ answer: String) {
+        viewDrawer.answerLabel.text = answer
+        switchQuestionAnswerModes(isQuestionMode: false)
+        viewDrawer.questionTextField.text = nil
+        viewDrawer.questionTextField.isEnabled = true
+    }
+    
+    // MARK: - Handle shake motion
+    
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake && !presenter.isRequestInProgress {
+            let isRequestAccepted = presenter.getAnswer(toQuestion: viewDrawer.questionTextField.text)
+            if isRequestAccepted {
+                viewDrawer.questionTextField.resignFirstResponder()
+                viewDrawer.questionTextField.isEnabled = false
+            }
+        }
+        
+        super.motionBegan(motion, with: event)
+    }
+    
+    // MARK: - Private methods
+    
+    private func animateButtonTap(using view: UIView) {
+        UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseInOut) {
+            view.alpha = 0.5
+        }
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut) {
+            view.alpha = 1.0
+        }
     }
 }

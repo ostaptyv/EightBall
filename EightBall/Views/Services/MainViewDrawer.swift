@@ -15,10 +15,6 @@ class MainViewDrawer {
     private(set) var ballContentView: UIView!
     private(set) var buttonsContentView: UIView!
     private(set) var ballView: UIView!
-    
-    // FIXME: Debug, to delete; button to switch between Question and Answer modes
-    private(set) var switchQuestionAnswerModes: UIButton!
-    
     private(set) var questionTextField: UITextField!
     private(set) var answerLabel: UILabel!
     private(set) var clearAnswerButton: UIButton!
@@ -54,10 +50,6 @@ class MainViewDrawer {
         ballContentView = makeBallContentView()
         buttonsContentView = makeButtonsContentView()
         ballView = makeBallView()
-        
-        // FIXME: Debug, to delete; button to switch between Question and Answer modes
-        switchQuestionAnswerModes = makeSwitchQuestionAnswerModes()
-        
         questionTextField = makeQuestionTextField()
         answerLabel = makeAnswerLabel()
         clearAnswerButton = makeClearAnswerButton()
@@ -91,15 +83,6 @@ class MainViewDrawer {
         
         return ballView
     }
-    
-    // FIXME: Debug, to delete; button to switch between Question and Answer modes
-    private func makeSwitchQuestionAnswerModes() -> UIButton {
-        let switchQuestionAnswerModes = UIButton()
-        switchQuestionAnswerModes.backgroundColor = .red
-        switchQuestionAnswerModes.addTarget(self, action: #selector(switchQuestionAnswerModesTapped), for: .touchUpInside)
-        return switchQuestionAnswerModes
-    }
-    
     private func makeQuestionTextField() -> UITextField {
         let questionTextField = UITextField()
         questionTextField.borderStyle = .roundedRect
@@ -160,10 +143,6 @@ class MainViewDrawer {
         contentView.addSubview(ballContentView)
         contentView.addSubview(buttonsContentView)
         ballContentView.addSubview(ballView)
-        
-        // FIXME: Debug, to delete; button to switch between Question and Answer modes
-        ballContentView.addSubview(switchQuestionAnswerModes)
-        
         ballView.addSubview(questionTextField)
         ballView.addSubview(answerLabel)
         buttonsContentView.addSubview(clearAnswerButton)
@@ -178,10 +157,6 @@ class MainViewDrawer {
         constraintBallContentView(ballContentView)
         constraintButtonsContentView(buttonsContentView)
         constraintBallView(ballView)
-        
-        // FIXME: Debug, to delete; button to switch between Question and Answer modes
-        constraintSwitchQuestionAnswerModes(switchQuestionAnswerModes)
-        
         constraintQuestionTextField(questionTextField)
         constraintAnswerLabel(answerLabel)
         constraintClearAnswerButton(clearAnswerButton)
@@ -232,17 +207,6 @@ class MainViewDrawer {
         ballView.leadingAnchor.constraint(equalTo: ballContentView.leadingAnchor, constant: 35.0).isActive = true
         ballView.heightAnchor.constraint(equalTo: ballView.widthAnchor, constant: 0.0).isActive = true
     }
-    
-    // FIXME: Debug, to delete; button to switch between Question and Answer modes
-    private func constraintSwitchQuestionAnswerModes(_ switchQuestionAnswerModes: UIView) {
-        switchQuestionAnswerModes.translatesAutoresizingMaskIntoConstraints = false
-        
-        switchQuestionAnswerModes.trailingAnchor.constraint(equalTo: ballContentView.trailingAnchor, constant: -10.0).isActive = true
-        switchQuestionAnswerModes.bottomAnchor.constraint(equalTo: ballContentView.bottomAnchor, constant: -10.0).isActive = true
-        switchQuestionAnswerModes.widthAnchor.constraint(equalToConstant: 30.0).isActive = true
-        switchQuestionAnswerModes.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
-    }
-    
     private func constraintQuestionTextField(_ questionTextField: UIView) {
         questionTextField.translatesAutoresizingMaskIntoConstraints = false
         
@@ -289,10 +253,5 @@ class MainViewDrawer {
     }
     @objc private func shareAnswerButtonTapped(_ sender: UIButton) {
         self.delegate?.shareAnswerButtonTapped?(sender)
-    }
-    
-    // FIXME: Debug, to delete
-    @objc private func switchQuestionAnswerModesTapped() {
-        self.delegate?.switchQuestionAnswerModesTapped?()
     }
 }
