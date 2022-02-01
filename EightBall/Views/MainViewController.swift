@@ -57,13 +57,6 @@ class MainViewController: UIViewController, MainViewDrawerDelegate, UITextFieldD
         present(activityVC, animated: true)
     }
     
-    func switchQuestionAnswerModes(isQuestionMode: Bool) {
-        viewDrawer.questionTextField.isHidden = !isQuestionMode
-        viewDrawer.answerLabel.isHidden = isQuestionMode
-        viewDrawer.clearAnswerButton.isHidden = isQuestionMode
-        viewDrawer.shareAnswerButton.isHidden = isQuestionMode
-    }
-    
     // MARK: - Text field delegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -94,6 +87,13 @@ class MainViewController: UIViewController, MainViewDrawerDelegate, UITextFieldD
     }
     
     // MARK: - Private methods
+    
+    private func switchQuestionAnswerModes(isQuestionMode: Bool) {
+        viewDrawer.questionTextField.isHidden = !isQuestionMode
+        viewDrawer.answerLabel.isHidden = isQuestionMode
+        viewDrawer.clearAnswerButton.isHidden = isQuestionMode
+        viewDrawer.shareAnswerButton.isHidden = isQuestionMode
+    }
     
     private func animateButtonTap(using view: UIView) {
         UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseInOut) {

@@ -18,6 +18,7 @@
 		844987CC27A87FAA007432F1 /* MainNetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844987CB27A87FAA007432F1 /* MainNetworkLayer.swift */; };
 		844987CF27A88E5B007432F1 /* MainNetworkLayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844987CE27A88E5B007432F1 /* MainNetworkLayerDelegate.swift */; };
 		844987D227A8AAE9007432F1 /* MainModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844987D127A8AAE9007432F1 /* MainModuleBuilder.swift */; };
+		844987D727A9B7AF007432F1 /* SettingsTableViewDataSourcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844987D627A9B7AF007432F1 /* SettingsTableViewDataSourcer.swift */; };
 		846BA06627A33E22001A25E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BA06527A33E22001A25E8 /* AppDelegate.swift */; };
 		846BA06827A33E22001A25E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BA06727A33E22001A25E8 /* SceneDelegate.swift */; };
 		846BA06F27A33E24001A25E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846BA06E27A33E24001A25E8 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		844987CB27A87FAA007432F1 /* MainNetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNetworkLayer.swift; sourceTree = "<group>"; };
 		844987CE27A88E5B007432F1 /* MainNetworkLayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNetworkLayerDelegate.swift; sourceTree = "<group>"; };
 		844987D127A8AAE9007432F1 /* MainModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleBuilder.swift; sourceTree = "<group>"; };
+		844987D627A9B7AF007432F1 /* SettingsTableViewDataSourcer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSourcer.swift; sourceTree = "<group>"; };
 		846BA06227A33E22001A25E8 /* EightBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EightBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846BA06527A33E22001A25E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846BA06727A33E22001A25E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				844987B627A74348007432F1 /* MainViewDrawer.swift */,
+				844987D627A9B7AF007432F1 /* SettingsTableViewDataSourcer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				8449878E27A5BCA8007432F1 /* TextFieldTableViewCell.swift in Sources */,
 				8449878B27A59F88007432F1 /* SettingsViewController.swift in Sources */,
 				844987C727A87DD7007432F1 /* MainPresenter.swift in Sources */,
+				844987D727A9B7AF007432F1 /* SettingsTableViewDataSourcer.swift in Sources */,
 				846BA06827A33E22001A25E8 /* SceneDelegate.swift in Sources */,
 				844987D227A8AAE9007432F1 /* MainModuleBuilder.swift in Sources */,
 				8449879127A5D4CB007432F1 /* UIView+isKeyboardDismissedTappedOutside.swift in Sources */,
