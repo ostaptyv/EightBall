@@ -18,7 +18,7 @@ class TabBarController: UITabBarController {
     
     private func setupTabs() {
         let mainNC = UINavigationController(rootViewController: MainModuleBuilder.build())
-        let settingsNC = UINavigationController(rootViewController: SettingsViewController())
+        let settingsNC = UINavigationController(rootViewController: SettingsModuleBuilder.build())
         
         let ballIcon = UIImage(systemName: "circle.fill")!
         let gearIcon = UIImage(systemName: "gear")!

@@ -10,6 +10,7 @@ import UIKit
 class SettingsTableViewDataSourcer: NSObject, UITableViewDataSource {
     
     var textFieldTableViewCell: TextFieldTableViewCell!
+    var presenter: SettingsPresenter!
     
     // MARK: - Sections and cells
     
@@ -21,8 +22,7 @@ class SettingsTableViewDataSourcer: NSObject, UITableViewDataSource {
             return 1
         }
         if section == .predefinedAnswersSection {
-            // FIXME: Debug; should be replaced with real data in future
-            return 10
+            return presenter.numberOfAnswers
         }
         
         fatalError("Unknown section found")
@@ -36,7 +36,7 @@ class SettingsTableViewDataSourcer: NSObject, UITableViewDataSource {
             let predefinedAnswerCell = tableView.dequeueReusableCell(withIdentifier: .predefinedAnswerReuseIdentifier, for: indexPath)
             
             var contentConfiguration = predefinedAnswerCell.defaultContentConfiguration()
-            contentConfiguration.text = "Placeholder"
+            contentConfiguration.text = presenter.predefinedAnswerText(at: indexPath.row)
             predefinedAnswerCell.contentConfiguration = contentConfiguration
             
             return predefinedAnswerCell
@@ -48,7 +48,7 @@ class SettingsTableViewDataSourcer: NSObject, UITableViewDataSource {
     // MARK: - Headers and footers
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == .predefinedAnswersSection {
+        if section == .predefinedAnswersSection && presenter.numberOfAnswers != 0 {
             return .predefinedAnswersSectionHeader
         }
         return nil
@@ -70,15 +70,14 @@ class SettingsTableViewDataSourcer: NSObject, UITableViewDataSource {
         // Constraints the table view to not edit the text field cell
         return indexPath.section != .textFieldSection
     }
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if indexPath.section == .textFieldSection {
-            return .none
-        }
-        return .delete
-    }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            presenter.deletePredefinedAnswer(at: indexPath.row)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
+            if presenter.numberOfAnswers == 0 {
+                tableView.reloadData()
+            }
         }
     }
 }

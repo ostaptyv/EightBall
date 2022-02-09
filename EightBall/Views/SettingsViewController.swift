@@ -12,6 +12,8 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
     private let textFieldTableViewCell = TextFieldTableViewCell(style: .default, reuseIdentifier: nil)
     private let dataSourcer = SettingsTableViewDataSourcer()
     
+    var presenter: SettingsPresenter!
+    
     // MARK: - View controller lifecycle methods
 
     override func viewDidLoad() {
@@ -35,6 +37,7 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
         tableView = UITableView(frame: self.tableView.frame, style: .grouped)
         
         dataSourcer.textFieldTableViewCell = textFieldTableViewCell
+        dataSourcer.presenter = presenter
         tableView.dataSource = self.dataSourcer
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: .predefinedAnswerReuseIdentifier)
@@ -49,13 +52,14 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
         switchToInputMode(false)
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // FIXME: Should send the text field string to Presenter here...
-        
-        // FIXME: Debug, to delete
-        print("User entered new answer! Answer: \"\(textField.text ?? "*nil string*")\"")
+        presenter.write(textField.text)
         
         textField.text = nil
-        return textField.resignFirstResponder()
+        textField.resignFirstResponder()
+        
+        tableView.reloadData()
+        
+        return true
     }
     
     // MARK: - Table view delegate

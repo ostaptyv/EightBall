@@ -24,6 +24,12 @@
 		846BA06F27A33E24001A25E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846BA06E27A33E24001A25E8 /* Assets.xcassets */; };
 		846BA07D27A34036001A25E8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BA07C27A34036001A25E8 /* MainViewController.swift */; };
 		846BA07F27A38257001A25E8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BA07E27A38257001A25E8 /* TabBarController.swift */; };
+		8485BCBD27ACAAC700F9C55F /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BCBC27ACAAC700F9C55F /* SettingsPresenter.swift */; };
+		8485BCC227ACAB5500F9C55F /* PredefinedAnswersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BCC127ACAB5400F9C55F /* PredefinedAnswersStore.swift */; };
+		8485BCCE27ACAE5B00F9C55F /* InMemoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BCCD27ACAE5B00F9C55F /* InMemoryStore.swift */; };
+		8485BCD027ACAE7900F9C55F /* PredefinedAnswerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BCCF27ACAE7900F9C55F /* PredefinedAnswerEntity.swift */; };
+		8485BCD527AEFC6400F9C55F /* SettingsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BCD427AEFC6400F9C55F /* SettingsModuleBuilder.swift */; };
+		84A5BB6927AF5702007982CA /* AnyPredefinedAnswersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5BB6827AF5702007982CA /* AnyPredefinedAnswersStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +52,12 @@
 		846BA07327A33E24001A25E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		846BA07C27A34036001A25E8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		846BA07E27A38257001A25E8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		8485BCBC27ACAAC700F9C55F /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		8485BCC127ACAB5400F9C55F /* PredefinedAnswersStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredefinedAnswersStore.swift; sourceTree = "<group>"; };
+		8485BCCD27ACAE5B00F9C55F /* InMemoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryStore.swift; sourceTree = "<group>"; };
+		8485BCCF27ACAE7900F9C55F /* PredefinedAnswerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredefinedAnswerEntity.swift; sourceTree = "<group>"; };
+		8485BCD427AEFC6400F9C55F /* SettingsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModuleBuilder.swift; sourceTree = "<group>"; };
+		84A5BB6827AF5702007982CA /* AnyPredefinedAnswersStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPredefinedAnswersStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +99,7 @@
 		844987B827A74773007432F1 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				844987C827A87E2B007432F1 /* Services */,
+				8485BCD127ACAFFF00F9C55F /* Stores */,
 				844987CD27A88E4C007432F1 /* Main */,
 			);
 			path = Protocols;
@@ -97,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				844987C627A87DD7007432F1 /* MainPresenter.swift */,
+				8485BCBC27ACAAC700F9C55F /* SettingsPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -106,6 +119,7 @@
 			children = (
 				844987C227A876C9007432F1 /* Entities */,
 				844987C127A874AB007432F1 /* Network */,
+				8485BCC327ACAB5900F9C55F /* Store */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -122,22 +136,16 @@
 			isa = PBXGroup;
 			children = (
 				844987C327A87742007432F1 /* ResponseEntity.swift */,
+				8485BCCF27ACAE7900F9C55F /* PredefinedAnswerEntity.swift */,
 			);
 			path = Entities;
-			sourceTree = "<group>";
-		};
-		844987C827A87E2B007432F1 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				844987B927A74782007432F1 /* MainViewDrawerDelegate.swift */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		844987CD27A88E4C007432F1 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				844987C927A87E76007432F1 /* MainViewProtocol.swift */,
+				844987B927A74782007432F1 /* MainViewDrawerDelegate.swift */,
 				844987CE27A88E5B007432F1 /* MainNetworkLayerDelegate.swift */,
 			);
 			path = Main;
@@ -147,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				844987D127A8AAE9007432F1 /* MainModuleBuilder.swift */,
+				8485BCD427AEFC6400F9C55F /* SettingsModuleBuilder.swift */,
 			);
 			path = Builders;
 			sourceTree = "<group>";
@@ -212,6 +221,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		8485BCC327ACAB5900F9C55F /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				8485BCCD27ACAE5B00F9C55F /* InMemoryStore.swift */,
+				84A5BB6827AF5702007982CA /* AnyPredefinedAnswersStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		8485BCD127ACAFFF00F9C55F /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				8485BCC127ACAB5400F9C55F /* PredefinedAnswersStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -228,6 +254,8 @@
 			dependencies = (
 			);
 			name = EightBall;
+			packageProductDependencies = (
+			);
 			productName = EightBall;
 			productReference = 846BA06227A33E22001A25E8 /* EightBall.app */;
 			productType = "com.apple.product-type.application";
@@ -256,6 +284,8 @@
 				Base,
 			);
 			mainGroup = 846BA05927A33E21001A25E8;
+			packageReferences = (
+			);
 			productRefGroup = 846BA06327A33E22001A25E8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -284,8 +314,10 @@
 				846BA07D27A34036001A25E8 /* MainViewController.swift in Sources */,
 				844987BA27A74782007432F1 /* MainViewDrawerDelegate.swift in Sources */,
 				844987CC27A87FAA007432F1 /* MainNetworkLayer.swift in Sources */,
+				8485BCBD27ACAAC700F9C55F /* SettingsPresenter.swift in Sources */,
 				844987CF27A88E5B007432F1 /* MainNetworkLayerDelegate.swift in Sources */,
 				846BA07F27A38257001A25E8 /* TabBarController.swift in Sources */,
+				84A5BB6927AF5702007982CA /* AnyPredefinedAnswersStore.swift in Sources */,
 				844987B727A74348007432F1 /* MainViewDrawer.swift in Sources */,
 				846BA06627A33E22001A25E8 /* AppDelegate.swift in Sources */,
 				844987C427A87742007432F1 /* ResponseEntity.swift in Sources */,
@@ -293,9 +325,13 @@
 				8449878E27A5BCA8007432F1 /* TextFieldTableViewCell.swift in Sources */,
 				8449878B27A59F88007432F1 /* SettingsViewController.swift in Sources */,
 				844987C727A87DD7007432F1 /* MainPresenter.swift in Sources */,
+				8485BCD027ACAE7900F9C55F /* PredefinedAnswerEntity.swift in Sources */,
+				8485BCC227ACAB5500F9C55F /* PredefinedAnswersStore.swift in Sources */,
+				8485BCCE27ACAE5B00F9C55F /* InMemoryStore.swift in Sources */,
 				844987D727A9B7AF007432F1 /* SettingsTableViewDataSourcer.swift in Sources */,
 				846BA06827A33E22001A25E8 /* SceneDelegate.swift in Sources */,
 				844987D227A8AAE9007432F1 /* MainModuleBuilder.swift in Sources */,
+				8485BCD527AEFC6400F9C55F /* SettingsModuleBuilder.swift in Sources */,
 				8449879127A5D4CB007432F1 /* UIView+isKeyboardDismissedTappedOutside.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -409,7 +445,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
