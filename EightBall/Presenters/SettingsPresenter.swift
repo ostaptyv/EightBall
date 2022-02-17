@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class SettingsPresenter {
-    private var store = InMemoryStore
+    private var store: AnyPredefinedAnswersStore<PredefinedAnswerEntity> = InMemoryStore
         .shared
         .eraseToAnyPredefinedAnswersStore()
     

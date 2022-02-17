@@ -18,7 +18,7 @@ class MainPresenter: MainNetworkLayerDelegate {
     
     public private(set) var isRequestInProgress = false
     
-    public func getAnswer(toQuestion question: String?) -> Bool {
+    public func retrieveAnswer(to question: String?) -> Bool {
         guard let question = question, !question.isEmpty else {
             // TODO: TODO: Consider creating some UI alert to indicate the user that they are trying to get an answer for an empty string
             return false
@@ -32,7 +32,7 @@ class MainPresenter: MainNetworkLayerDelegate {
         return true
     }
     
-    public func getShareText() -> String {
+    public func makeTextToShare() -> String {
         guard let response = latestResponse else {
             fatalError("\(#function) method was toggled before any successful Internet request was made; latestResponse == nil")
         }

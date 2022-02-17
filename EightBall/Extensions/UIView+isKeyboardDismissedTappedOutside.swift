@@ -33,6 +33,8 @@ extension UIView {
         }
     }
     
+    // MARK: - Private methods
+    
     private func manageTapGestureRecognizer(using keyboardShouldDismiss: Bool, for target: UIView) {
         if keyboardShouldDismiss {
             let tapGestureRecognizer = UITapGestureRecognizer(target: target, action: #selector(dismissKeyboard))
