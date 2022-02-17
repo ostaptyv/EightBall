@@ -51,7 +51,7 @@ class MainViewController: UIViewController, MainViewDrawerDelegate, UITextFieldD
     func shareAnswerButtonTapped(_ sender: UIButton) {
         animateButtonTap(using: sender)
         
-        let textToShare = presenter.getShareText()
+        let textToShare = presenter.makeTextToShare()
         let activityVC = UIActivityViewController(activityItems: [textToShare],
                                                   applicationActivities: nil)
         present(activityVC, animated: true)
@@ -76,7 +76,7 @@ class MainViewController: UIViewController, MainViewDrawerDelegate, UITextFieldD
     
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake && !presenter.isRequestInProgress {
-            let isRequestAccepted = presenter.getAnswer(toQuestion: viewDrawer.questionTextField.text)
+            let isRequestAccepted = presenter.retrieveAnswer(to: viewDrawer.questionTextField.text)
             if isRequestAccepted {
                 viewDrawer.questionTextField.resignFirstResponder()
                 viewDrawer.questionTextField.isEnabled = false
