@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		156DC1B0DE53C029BBEA8DE1 /* Pods_EightBall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6EED854C4D345755B37A612 /* Pods_EightBall.framework */; };
 		8449878B27A59F88007432F1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449878A27A59F88007432F1 /* SettingsViewController.swift */; };
 		8449878E27A5BCA8007432F1 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449878D27A5BCA8007432F1 /* TextFieldTableViewCell.swift */; };
 		8449879127A5D4CB007432F1 /* UIView+isKeyboardDismissedTappedOutside.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449879027A5D4CB007432F1 /* UIView+isKeyboardDismissedTappedOutside.swift */; };
@@ -58,6 +59,9 @@
 		8485BCCF27ACAE7900F9C55F /* PredefinedAnswerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredefinedAnswerEntity.swift; sourceTree = "<group>"; };
 		8485BCD427AEFC6400F9C55F /* SettingsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModuleBuilder.swift; sourceTree = "<group>"; };
 		84A5BB6827AF5702007982CA /* AnyPredefinedAnswersStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPredefinedAnswersStore.swift; sourceTree = "<group>"; };
+		B3B391BC11C2B5CA023717FA /* Pods-EightBall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EightBall.release.xcconfig"; path = "Target Support Files/Pods-EightBall/Pods-EightBall.release.xcconfig"; sourceTree = "<group>"; };
+		D6EED854C4D345755B37A612 /* Pods_EightBall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EightBall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0E5B03BDBCF32AC75502BCA /* Pods-EightBall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EightBall.debug.xcconfig"; path = "Target Support Files/Pods-EightBall/Pods-EightBall.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,12 +69,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				156DC1B0DE53C029BBEA8DE1 /* Pods_EightBall.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35122CF87BE03526D3667AA2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6EED854C4D345755B37A612 /* Pods_EightBall.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83E94FDE2A217617069B3777 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0E5B03BDBCF32AC75502BCA /* Pods-EightBall.debug.xcconfig */,
+				B3B391BC11C2B5CA023717FA /* Pods-EightBall.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8449878C27A5BC92007432F1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +188,8 @@
 			children = (
 				846BA06427A33E22001A25E8 /* EightBall */,
 				846BA06327A33E22001A25E8 /* Products */,
+				83E94FDE2A217617069B3777 /* Pods */,
+				35122CF87BE03526D3667AA2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -245,17 +270,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 846BA07627A33E24001A25E8 /* Build configuration list for PBXNativeTarget "EightBall" */;
 			buildPhases = (
+				473BCF0B6128259FFC23A3ED /* [CP] Check Pods Manifest.lock */,
 				846BA05E27A33E21001A25E8 /* Sources */,
 				846BA05F27A33E21001A25E8 /* Frameworks */,
 				846BA06027A33E21001A25E8 /* Resources */,
+				EA4571E4B5D7ECC12B81EDD0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = EightBall;
-			packageProductDependencies = (
-			);
 			productName = EightBall;
 			productReference = 846BA06227A33E22001A25E8 /* EightBall.app */;
 			productType = "com.apple.product-type.application";
@@ -284,8 +309,6 @@
 				Base,
 			);
 			mainGroup = 846BA05927A33E21001A25E8;
-			packageReferences = (
-			);
 			productRefGroup = 846BA06327A33E22001A25E8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -305,6 +328,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		473BCF0B6128259FFC23A3ED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EightBall-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA4571E4B5D7ECC12B81EDD0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EightBall/Pods-EightBall-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EightBall/Pods-EightBall-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EightBall/Pods-EightBall-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		846BA05E27A33E21001A25E8 /* Sources */ = {
@@ -457,6 +522,7 @@
 		};
 		846BA07727A33E24001A25E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0E5B03BDBCF32AC75502BCA /* Pods-EightBall.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -485,6 +551,7 @@
 		};
 		846BA07827A33E24001A25E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3B391BC11C2B5CA023717FA /* Pods-EightBall.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
