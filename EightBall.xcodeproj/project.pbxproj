@@ -111,19 +111,20 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		844987B527A74311007432F1 /* Services */ = {
+		844987B527A74311007432F1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				844987B627A74348007432F1 /* MainViewDrawer.swift */,
 				844987D627A9B7AF007432F1 /* SettingsTableViewDataSourcer.swift */,
 			);
-			path = Services;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		844987B827A74773007432F1 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				8485BCD127ACAFFF00F9C55F /* Stores */,
+				84CEA06827C595D80041D44F /* Network */,
 				844987CD27A88E4C007432F1 /* Main */,
 			);
 			path = Protocols;
@@ -136,16 +137,6 @@
 				8485BCBC27ACAAC700F9C55F /* SettingsPresenter.swift */,
 			);
 			path = Presenters;
-			sourceTree = "<group>";
-		};
-		844987C027A874A7007432F1 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				844987C227A876C9007432F1 /* Entities */,
-				844987C127A874AB007432F1 /* Network */,
-				8485BCC327ACAB5900F9C55F /* Store */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		844987C127A874AB007432F1 /* Network */ = {
@@ -170,7 +161,6 @@
 			children = (
 				844987C927A87E76007432F1 /* MainViewProtocol.swift */,
 				844987B927A74782007432F1 /* MainViewDrawerDelegate.swift */,
-				844987CE27A88E5B007432F1 /* MainNetworkLayerDelegate.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -210,9 +200,10 @@
 				846BA07927A33F6A001A25E8 /* SystemDelegates */,
 				844987D027A8AAD1007432F1 /* Builders */,
 				844987B827A74773007432F1 /* Protocols */,
-				844987C027A874A7007432F1 /* Models */,
-				846BA07B27A34022001A25E8 /* Views */,
+				844987C227A876C9007432F1 /* Entities */,
+				84CEA06627C58C9F0041D44F /* Services */,
 				844987BD27A86C53007432F1 /* Presenters */,
+				846BA07B27A34022001A25E8 /* Views */,
 				846BA07A27A33F92001A25E8 /* Assets */,
 			);
 			path = EightBall;
@@ -238,11 +229,11 @@
 		846BA07B27A34022001A25E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				844987B527A74311007432F1 /* Services */,
-				8449878C27A5BC92007432F1 /* Cells */,
 				846BA07E27A38257001A25E8 /* TabBarController.swift */,
 				846BA07C27A34036001A25E8 /* MainViewController.swift */,
 				8449878A27A59F88007432F1 /* SettingsViewController.swift */,
+				8449878C27A5BC92007432F1 /* Cells */,
+				844987B527A74311007432F1 /* Helpers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,6 +254,23 @@
 				84CEA06427C563690041D44F /* PredefinedAnswersStorable.swift */,
 			);
 			path = Stores;
+			sourceTree = "<group>";
+		};
+		84CEA06627C58C9F0041D44F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8485BCC327ACAB5900F9C55F /* Store */,
+				844987C127A874AB007432F1 /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		84CEA06827C595D80041D44F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				844987CE27A88E5B007432F1 /* MainNetworkLayerDelegate.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
