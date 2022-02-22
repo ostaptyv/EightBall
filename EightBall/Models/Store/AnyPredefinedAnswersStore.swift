@@ -5,7 +5,7 @@
 //  Created by Ostap Tyvonovych on 06.02.2022.
 //
 
-class AnyPredefinedAnswersStore<PredefinedAnswer>: PredefinedAnswersStore {
+final class AnyPredefinedAnswersStore<PredefinedAnswer>: PredefinedAnswersStore {
     private let _numberOfAnswers: () -> Int
     private let _writePredefinedAnswer: (PredefinedAnswer) -> Void
     private let _predefinedAnswerAtIndex: (Int) -> PredefinedAnswer

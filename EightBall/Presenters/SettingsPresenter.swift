@@ -9,9 +9,7 @@ import Foundation
 import SwiftUI
 
 class SettingsPresenter {
-    private var store: AnyPredefinedAnswersStore<PredefinedAnswerEntity> = InMemoryStore
-        .shared
-        .eraseToAnyPredefinedAnswersStore()
+    private var store: AnyPredefinedAnswersStore<PredefinedAnswerEntity>!
     
     // MARK: - Public interface
     
@@ -36,5 +34,18 @@ class SettingsPresenter {
     }
     func deletePredefinedAnswer(at index: Int) {
         store.deletePredefinedAnswer(at: index)
+    }
+}
+
+// MARK: - 'Storable' protocol requirements
+
+extension SettingsPresenter: PredefinedAnswersStorable {
+    typealias PredefinedAnswer = PredefinedAnswerEntity
+    
+    func setPredefinedAnswersStore<T: PredefinedAnswersStore>(_ predefinedAnswersStore: T) where T.PredefinedAnswer == PredefinedAnswerEntity {
+        guard store == nil else {
+            return
+        }
+        self.store = AnyPredefinedAnswersStore(predefinedAnswersStore)
     }
 }
