@@ -25,9 +25,10 @@ class MainViewController: UIViewController, MainViewDrawerDelegate, UITextFieldD
         viewDrawer.setupInterface()
     }
     override func viewDidLayoutSubviews() {
-        viewDrawer.ballView.setNeedsLayout()
-        viewDrawer.ballView.layoutIfNeeded()
-        viewDrawer.ballView.layer.cornerRadius = viewDrawer.ballView.layer.bounds.width / 2
+        let ballView = viewDrawer.ballView!
+        ballView.setNeedsLayout()
+        ballView.layoutIfNeeded()
+        ballView.layer.cornerRadius = ballView.layer.bounds.width / 2
     }
     
     // MARK: - View drawer delegate

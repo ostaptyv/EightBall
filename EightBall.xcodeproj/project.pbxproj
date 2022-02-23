@@ -31,6 +31,7 @@
 		8485BCD027ACAE7900F9C55F /* PredefinedAnswerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BCCF27ACAE7900F9C55F /* PredefinedAnswerEntity.swift */; };
 		8485BCD527AEFC6400F9C55F /* SettingsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BCD427AEFC6400F9C55F /* SettingsModuleBuilder.swift */; };
 		84A5BB6927AF5702007982CA /* AnyPredefinedAnswersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5BB6827AF5702007982CA /* AnyPredefinedAnswersStore.swift */; };
+		84CEA06527C563690041D44F /* PredefinedAnswersStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEA06427C563690041D44F /* PredefinedAnswersStorable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		8485BCCF27ACAE7900F9C55F /* PredefinedAnswerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredefinedAnswerEntity.swift; sourceTree = "<group>"; };
 		8485BCD427AEFC6400F9C55F /* SettingsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModuleBuilder.swift; sourceTree = "<group>"; };
 		84A5BB6827AF5702007982CA /* AnyPredefinedAnswersStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPredefinedAnswersStore.swift; sourceTree = "<group>"; };
+		84CEA06427C563690041D44F /* PredefinedAnswersStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredefinedAnswersStorable.swift; sourceTree = "<group>"; };
 		B3B391BC11C2B5CA023717FA /* Pods-EightBall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EightBall.release.xcconfig"; path = "Target Support Files/Pods-EightBall/Pods-EightBall.release.xcconfig"; sourceTree = "<group>"; };
 		D6EED854C4D345755B37A612 /* Pods_EightBall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EightBall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0E5B03BDBCF32AC75502BCA /* Pods-EightBall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EightBall.debug.xcconfig"; path = "Target Support Files/Pods-EightBall/Pods-EightBall.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,7 +92,6 @@
 				E0E5B03BDBCF32AC75502BCA /* Pods-EightBall.debug.xcconfig */,
 				B3B391BC11C2B5CA023717FA /* Pods-EightBall.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -110,19 +111,20 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		844987B527A74311007432F1 /* Services */ = {
+		844987B527A74311007432F1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				844987B627A74348007432F1 /* MainViewDrawer.swift */,
 				844987D627A9B7AF007432F1 /* SettingsTableViewDataSourcer.swift */,
 			);
-			path = Services;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		844987B827A74773007432F1 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				8485BCD127ACAFFF00F9C55F /* Stores */,
+				84CEA06827C595D80041D44F /* Network */,
 				844987CD27A88E4C007432F1 /* Main */,
 			);
 			path = Protocols;
@@ -135,16 +137,6 @@
 				8485BCBC27ACAAC700F9C55F /* SettingsPresenter.swift */,
 			);
 			path = Presenters;
-			sourceTree = "<group>";
-		};
-		844987C027A874A7007432F1 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				844987C227A876C9007432F1 /* Entities */,
-				844987C127A874AB007432F1 /* Network */,
-				8485BCC327ACAB5900F9C55F /* Store */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		844987C127A874AB007432F1 /* Network */ = {
@@ -169,7 +161,6 @@
 			children = (
 				844987C927A87E76007432F1 /* MainViewProtocol.swift */,
 				844987B927A74782007432F1 /* MainViewDrawerDelegate.swift */,
-				844987CE27A88E5B007432F1 /* MainNetworkLayerDelegate.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -209,9 +200,10 @@
 				846BA07927A33F6A001A25E8 /* SystemDelegates */,
 				844987D027A8AAD1007432F1 /* Builders */,
 				844987B827A74773007432F1 /* Protocols */,
-				844987C027A874A7007432F1 /* Models */,
-				846BA07B27A34022001A25E8 /* Views */,
+				844987C227A876C9007432F1 /* Entities */,
+				84CEA06627C58C9F0041D44F /* Services */,
 				844987BD27A86C53007432F1 /* Presenters */,
+				846BA07B27A34022001A25E8 /* Views */,
 				846BA07A27A33F92001A25E8 /* Assets */,
 			);
 			path = EightBall;
@@ -237,11 +229,11 @@
 		846BA07B27A34022001A25E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				844987B527A74311007432F1 /* Services */,
-				8449878C27A5BC92007432F1 /* Cells */,
 				846BA07E27A38257001A25E8 /* TabBarController.swift */,
 				846BA07C27A34036001A25E8 /* MainViewController.swift */,
 				8449878A27A59F88007432F1 /* SettingsViewController.swift */,
+				8449878C27A5BC92007432F1 /* Cells */,
+				844987B527A74311007432F1 /* Helpers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -249,8 +241,8 @@
 		8485BCC327ACAB5900F9C55F /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				8485BCCD27ACAE5B00F9C55F /* InMemoryStore.swift */,
 				84A5BB6827AF5702007982CA /* AnyPredefinedAnswersStore.swift */,
+				8485BCCD27ACAE5B00F9C55F /* InMemoryStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -259,8 +251,26 @@
 			isa = PBXGroup;
 			children = (
 				8485BCC127ACAB5400F9C55F /* PredefinedAnswersStore.swift */,
+				84CEA06427C563690041D44F /* PredefinedAnswersStorable.swift */,
 			);
 			path = Stores;
+			sourceTree = "<group>";
+		};
+		84CEA06627C58C9F0041D44F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8485BCC327ACAB5900F9C55F /* Store */,
+				844987C127A874AB007432F1 /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		84CEA06827C595D80041D44F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				844987CE27A88E5B007432F1 /* MainNetworkLayerDelegate.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,6 +403,7 @@
 				8485BCD027ACAE7900F9C55F /* PredefinedAnswerEntity.swift in Sources */,
 				8485BCC227ACAB5500F9C55F /* PredefinedAnswersStore.swift in Sources */,
 				8485BCCE27ACAE5B00F9C55F /* InMemoryStore.swift in Sources */,
+				84CEA06527C563690041D44F /* PredefinedAnswersStorable.swift in Sources */,
 				844987D727A9B7AF007432F1 /* SettingsTableViewDataSourcer.swift in Sources */,
 				846BA06827A33E22001A25E8 /* SceneDelegate.swift in Sources */,
 				844987D227A8AAE9007432F1 /* MainModuleBuilder.swift in Sources */,

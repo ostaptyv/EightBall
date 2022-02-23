@@ -25,6 +25,7 @@ extension UIView {
         get {
             return tapGestureRecognizers[self] != nil
         }
+        
         set(keyboardShouldDismiss) {
             if self.isKeyboardDismissedWhenTappedOutside == keyboardShouldDismiss {
                 return

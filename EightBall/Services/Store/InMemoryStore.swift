@@ -12,10 +12,6 @@ final class InMemoryStore: PredefinedAnswersStore {
     
     static let shared = InMemoryStore()
     
-    func eraseToAnyPredefinedAnswersStore() -> AnyPredefinedAnswersStore<PredefinedAnswerEntity> {
-        return .init(self)
-    }
-    
     // MARK: - Predefined answers store public interface
     
     func numberOfAnswers() -> Int {

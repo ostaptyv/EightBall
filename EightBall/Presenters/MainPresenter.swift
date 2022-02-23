@@ -16,7 +16,7 @@ class MainPresenter: MainNetworkLayerDelegate {
     
     // MARK: - Public interface
     
-    public private(set) var isRequestInProgress = false
+    private(set) var isRequestInProgress = false
     
     public func retrieveAnswer(to question: String?) -> Bool {
         guard let question = question, !question.isEmpty else {
